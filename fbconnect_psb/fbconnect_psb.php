@@ -27,7 +27,7 @@ class FBConnect_PSB extends Module
 		$this->name = 'fbconnect_psb';
 		$this->tab = 'social_networks';
 		$this->author = 'Ha!*!*y';
-		$this->version = '1.06b';
+		$this->version = '1.061b';
 
 		$this->need_instance = 0;
 		$this->ps_versions_compliancy = array('min' => '1.5', 'max' => '1.6');
@@ -35,7 +35,7 @@ class FBConnect_PSB extends Module
 		parent::__construct();
 
 		$this->displayName = $this->l('Facebook Connect (OpenID)');
-		$this->description = $this->l('This modules allows Customers to Register & Login with Facebook.');
+		$this->description = $this->l('This module allows Customers to Register & Login with Facebook.');
 
 		$this->dbUpdate_output = '';
 	}
@@ -146,22 +146,24 @@ class FBConnect_PSB extends Module
 				</div>
 				<center><input type="submit" name="submitFBKey" value="'.$this->l('Save').'" class="button" /></center>
 			</fieldset>
-		</form>';
+		</form><br />';
 
-		$output .= '<br /><div class="module_confirmation conf">
-			Edit authentication.tpl place the link to Facebook login<br />You can put the login links anywhere.<br /><br />
+		$output .= '<div style="display:block;" class="hint">
+			Edit authentication.tpl (file is located in side your theme directory) place the link to Facebook login.<br />
+			If your using the default theme than it\'s in folder /themes/default/authentication.tpl<br />
+			You can place the links anywhere.<br /><br />
 			&lt;a title="Login with your Facebook Account" class="button_large" href="{$link-&gt;getModuleLink(\'fbconnect_psb\', \'login\', array(), true)}"&gt;Facebook Login&lt/a&gt;</br></br>
-			</div>';
+			</div><br />';
 
 		if(!empty($this->dbUpdate_output))
-			$output .= '<br /><div class="module_confirmation warn">'.$this->dbUpdate_output.'</div><br />';
+			$output .= '<div class="module_confirmation warn">'.$this->dbUpdate_output.'</div><br />';
 		
 		$output .= '<form action="'.$_SERVER['REQUEST_URI'].'" method="post">
 			<fieldset><legend>'.$this->l('DB Update').'</legend>
 				<p>'.$this->l('DB Update from v1.0b to 1.06b').'</p><br />
 				<center><input type="submit" name="submitFBconnect_psb_db_update" value="'.$this->l('Run DB Update').'" class="button" /></center>
 			</fieldset>
-		</form>';
+		</form><br />';
 
 		return $output;
 	}
