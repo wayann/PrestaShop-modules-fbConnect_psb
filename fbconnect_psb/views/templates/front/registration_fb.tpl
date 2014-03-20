@@ -45,7 +45,7 @@ function fb_validate(form) {
 		{"name":"password"},
 		{"name":"birthday"},
 		{"name":"gender"}]'
-		redirect-uri="{/literal}{$redirect_uri}{literal}" width="530" onvalidate='fb_validate()'></fb:registration>
+		redirect-uri="{/literal}{$redirect_uri}{literal}" width="530" onvalidate='fb_validate'></fb:registration>
 {/literal}
 </div>
 
