@@ -17,7 +17,22 @@
 *}
 
 {include file="$tpl_dir./errors.tpl"}
-
+<script>
+{literal}
+function fb_validate(form) {
+    
+     errors = {};
+     if (form.password.length < 8) {
+        errors.password = "Password length must be greater than 8 characters.";
+     }
+     if (form.password_confirmation.length !== form.password.length) {
+        errors.password_confirmation = "Password confirmation must be set.";
+     }
+     
+     return errors;
+  }
+{/literal}
+</script>
 <div id="fb-root"></div><script src="{$protocol_content}connect.facebook.net/en_US/all.js#appId={$fb_connect_appid}&xfbml=1"></script>
 <div class="clear">
 {literal}
@@ -30,6 +45,7 @@
 		{"name":"password"},
 		{"name":"birthday"},
 		{"name":"gender"}]'
-		redirect-uri="{/literal}{$redirect_uri}{literal}" width="530"></fb:registration>
+		redirect-uri="{/literal}{$redirect_uri}{literal}" width="530" onvalidate='fb_validate'></fb:registration>
 {/literal}
 </div>
+
