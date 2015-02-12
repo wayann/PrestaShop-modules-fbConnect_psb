@@ -87,7 +87,7 @@ class FBConnect_PSBLinkModuleFrontController extends ModuleFrontController
 				$this->context->smarty->assign(array(
 					'fbconnect_psb_status' => 'error',
 					'fbconnect_psb_massage' => 'The Facebook account is already linked to another account.',
-					'fbconnect_psb_fb_picture' => 'https://graph.facebook.com/'.$fb_user_profile['username'].'/picture',
+					'fbconnect_psb_fb_picture' => 'https://graph.facebook.com/'.$fb_user_profile['id'].'/picture',
 					'fbconnect_psb_fb_name' => $fb_user_profile['name']
 				));
 			}
@@ -96,7 +96,7 @@ class FBConnect_PSBLinkModuleFrontController extends ModuleFrontController
 				$this->context->smarty->assign(array(
 					'fbconnect_psb_status' => 'linked',
 					'fbconnect_psb_massage' => 'The Facebook account is already linked to your account.',
-					'fbconnect_psb_fb_picture' => 'https://graph.facebook.com/'.$fb_user_profile['username'].'/picture',
+					'fbconnect_psb_fb_picture' => 'https://graph.facebook.com/'.$fb_user_profile['id'].'/picture',
 					'fbconnect_psb_fb_name' => $fb_user_profile['name']
 				));
 			}
@@ -130,7 +130,7 @@ class FBConnect_PSBLinkModuleFrontController extends ModuleFrontController
 					$this->context->smarty->assign(array(
 						'fbconnect_psb_status' => 'conform',
 						'fbconnect_psb_massage' => 'Your Facebook account has been linked to account.',
-						'fbconnect_psb_fb_picture' => 'https://graph.facebook.com/'.$fb_user_profile['username'].'/picture',
+						'fbconnect_psb_fb_picture' => 'https://graph.facebook.com/'.$fb_user_profile['id'].'/picture',
 						'fbconnect_psb_fb_name' => $fb_user_profile['name']
 					));
 				}
